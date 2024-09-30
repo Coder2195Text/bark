@@ -15,11 +15,13 @@ export const metadata: Metadata = {
 const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
   variable: "--font-dm-sans",
+  subsets: ["latin", "latin-ext"],
 });
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   variable: "--font-popins",
+  subsets: ["latin", "latin-ext"],
 });
 
 const Layout: FC<{
