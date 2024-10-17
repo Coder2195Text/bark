@@ -2,12 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes ripple {
+  0% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(20, 20);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
 @layer base {
+  hr {
+    @apply w-full;
+  }
   body {
     @apply font-body transition-[background] duration-300 ease-in-out bg-white dark:bg-black text-black dark:text-white;
   }
 
   * {
+    scrollbar-width: thin;
+
     @apply border-zinc-300 dark:border-zinc-700;
   }
 
@@ -46,6 +68,31 @@
 
   h6 {
     @apply font-semibold text-lg;
+  }
+}
+
+@layer components {
+  button,
+  .btn {
+    @apply bg-primary inline-block text-center cursor-pointer rounded-lg p-1 align-middle relative overflow-hidden;
+  }
+
+  /* place the element with after, which will get animated */
+  button:after,
+  .btn:after {
+    content: "";
+    background: rgba(255, 255, 255, 0.3);
+    width: 5%;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+
+    @apply opacity-0 absolute top-1/2 left-1/2;
+  }
+
+  /* button beeing focussed but not active right now? Trigger animation */
+  button:not(:active)::after,
+  .btn:not(:active)::after {
+    animation: ripple 0.5s linear;
   }
 }
 

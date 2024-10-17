@@ -12,6 +12,9 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#19b1a0",
+        "primary-darker": "#138679",
+        "primary-lighter": "#19b3a1",
       },
     },
     fontFamily: {
