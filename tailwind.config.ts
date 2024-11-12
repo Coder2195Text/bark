@@ -9,6 +9,9 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      borderWidth: {
+        "1": "1px",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

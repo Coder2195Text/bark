@@ -1,9 +1,13 @@
 import { router } from ".";
+import { checkUsername } from "./procedures/check-username";
+import { createAccount } from "./procedures/create-account";
 import { getProfile } from "./procedures/get-profile";
 export const appRouter = router({
   // 👇 define your queries here
   getProfile,
+  checkUsername,
   // 👇 define your mutations here
+  createAccount,
 });
 
 export const createContext = async () => {

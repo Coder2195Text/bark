@@ -86,6 +86,19 @@ export const isExists = base.unstable_pipe(async (opts) => {
   return opts.next();
 });
 
+export const isNotExists = base.unstable_pipe(async (opts) => {
+  const profile = opts.ctx.profile;
+
+  if (profile) {
+    throw new TRPCError({
+      code: "CONFLICT",
+      message: "User not found",
+    });
+  }
+
+  return opts.next();
+});
+
 /**
  * Export reusable router and procedure helpers
  * that can be used throughout the router

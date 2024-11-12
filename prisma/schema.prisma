@@ -26,9 +26,11 @@ model User {
 
   rank Rank @default(MEMBER)
 
+  name       String
   profilePic String?
-  bio        String  @default("")
+  bio        String   @default("")
   banner     String?
+  birthday   DateTime
 
   likes Like[]
   posts Post[]

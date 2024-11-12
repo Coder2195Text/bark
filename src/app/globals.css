@@ -47,34 +47,34 @@
   }
 
   h1 {
-    @apply font-extrabold text-5xl;
+    @apply font-bold text-5xl;
   }
 
   h2 {
-    @apply font-extrabold text-4xl;
+    @apply font-bold text-4xl;
   }
 
   h3 {
-    @apply font-bold text-3xl;
+    @apply font-semibold text-3xl;
   }
 
   h4 {
-    @apply font-bold text-2xl;
+    @apply font-semibold text-2xl;
   }
 
   h5 {
-    @apply font-semibold text-xl;
+    @apply font-medium text-xl;
   }
 
   h6 {
-    @apply font-semibold text-lg;
+    @apply font-medium text-lg;
   }
 }
 
 @layer components {
   button,
   .btn {
-    @apply bg-primary inline-block text-center cursor-pointer rounded-lg p-1 align-middle relative overflow-hidden;
+    @apply bg-primary text-white inline text-center cursor-pointer rounded-lg p-1 align-middle relative overflow-hidden transition-all duration-200 hover:brightness-90 border-1;
   }
 
   /* place the element with after, which will get animated */
@@ -86,7 +86,7 @@
     aspect-ratio: 1 / 1;
     border-radius: 100%;
 
-    @apply opacity-0 absolute top-1/2 left-1/2;
+    @apply opacity-0 absolute top-1/2 left-1/2 dark:bg-[#ffffff4c] bg-[#0000004c];
   }
 
   /* button beeing focussed but not active right now? Trigger animation */
@@ -97,7 +97,27 @@
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .bg-page {
+    @apply bg-white dark:bg-black;
+  }
+
+  .underline-animation,
+  a.default,
+  #mdx a {
+    @apply inline relative;
+    background: linear-gradient(to right, rgb(19 134 121), rgb(25 179 161));
+    background-size: 0 0.15em;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 300ms;
+  }
+
+  .underline-animated,
+  a.default:hover,
+  #mdx a:hover,
+  .underline-animated:focus,
+  a.default:focus,
+  #mdx a:focus {
+    background-size: 100% 0.15em !important;
   }
 }
